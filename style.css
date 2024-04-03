@@ -56,9 +56,11 @@ h3 {
 }
 
 .logo-header {
-    max-width: 35px;
-    height: 100%;
+    max-width: 100px;
+    height: auto;
     width: 100%;
+    border-radius: 50%; /* Redondea la imagen */
+    overflow: hidden; /* Evita que la imagen se salga del círculo */
 }
 /**HeroSectionImgFondo**/
 .hero-section {
@@ -121,12 +123,13 @@ h3 {
     width: 300px;
     height: 225px;
 }
-/**TwoColumnsSection**/
+/**TwoColumnsSectionImgDeCaracter**/
 
 .wrap-two-column {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    max-width: 1200px;
+    display: flex;
+    flex-direction: column; /* Cambia la dirección del layout a columna */
+    align-items: center; /* Centra los elementos horizontalmente */
+    max-width: 800px; /* Ajusta el ancho máximo */
     margin: 0 auto;
 }
 
@@ -140,6 +143,7 @@ h3 {
 
 .wrap-text-column h3 {
     padding: 2rem 0;
+    flex: 1; /* Hace que el texto ocupe el espacio restante */
 }
 
 .wrap-text-column p {
@@ -149,13 +153,24 @@ h3 {
 sectio.two-column-section.form{
     background-color: #f2f2f2;
     padding: 3rem 0;
+    display: flex;
+    justify-content: flex-end; /* Alinea el contenido a la derecha */
+    align-items: center; /* Alinea verticalmente */
 }
+.form {
+    display: flex;
+    flex-direction: column; /* Cambia la dirección del layout a columna */
+    max-width: 600px; /* Ajusta el ancho máximo */
+}
+
 .form input, .form textarea{
   display: flex;
   width: 100%;
   line-height: 1.75rem;
   border: 1.5px solid #222; 
   border-radius: var(--border-r); 
+  padding: 0.5rem; /* Ajusta el espaciado interior */
+
 }
 .form textarea{
     min-height:200px;
@@ -200,45 +215,24 @@ input[type='submit'] {
 }
 @media only screen and (max-width: 800px) {
     /* LogoBrandSection */
-    .wrap-logos-section {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .logo-brand {
-        width: 150px;
-        padding: 0.5rem 1rem;
-    }
-
-    /* ServiciosSection */
-    .item-servicios-section {
-        width: 100%;
-        padding: 0.5rem;
-    }
-
-    .item-servicios-section img {
-        width: 100%;
-        height: auto;
+    .logo-header {
+        max-width: 150px; /* Ajusta el tamaño del logo */
     }
 
     /* TwoColumnsSection */
     .wrap-two-column {
-        grid-template-columns: 1fr;
-    }
-
-    .wrap-img-two-column {
-        padding: 1rem;
+        max-width: 100%; /* Ajusta el ancho máximo */
+        padding: 1rem; /* Añade un poco de espacio alrededor */
     }
 
     /* Formulario */
-    section.two-column-section.form {
+    .two-column-section.form {
         padding: 2rem 0;
     }
 
     .form input,
     .form textarea {
-        width: 100%;
-        padding: 0.5rem;
+        padding: 0.5rem; /* Ajusta el espaciado interior */
     }
 
     .form textarea {
@@ -247,10 +241,5 @@ input[type='submit'] {
 
     input[type='submit'] {
         padding: 0.5rem 1rem;
-    }
-
-    /* FooterSection */
-    .wrap-menu-footer-section ul li {
-        padding: 1rem;
     }
 }
